@@ -2,8 +2,7 @@ import { Client } from "@notionhq/client";
 import dotenv from "dotenv";
 import { Heading, ParagraphWithLink } from "./object-helpers.js";
 
-dotenv.config();
-
+dotenv.config({ path: `${__dirname}/.env`});
 
 const notion = new Client({ auth: process.env.NOTION_TOKEN });
 const pageId = process.env.NOTION_PAGE_ID;
