@@ -12,7 +12,7 @@ function echoMessage(url) {
 	const actualUrl = chalk.underline(url)
 	const pageName = chalk.green('TODAY I DISCOVERED')
 	const appName = chalk.green('Notion')
-	echo `Na stránku ${pageName} v aplikaci ${appName} bude uložen odkaz: ${actualUrl}}`
+	echo `Na stránku ${pageName} v aplikaci ${appName} bude uložen odkaz: ${actualUrl}}\n`
 }
 
 async function main() {
@@ -20,7 +20,7 @@ async function main() {
 	echoMessage(url)
 	const description = await question(chalk.cyan('Zadejte prosím krátký popis: '))
 	await addRecordToNotion(url, description)
-	echo `Odkaz byl uložen.`
+	echo `\n✅ Odkaz byl uložen.`
 }
 
 main()

@@ -1,5 +1,6 @@
 import { Client } from "@notionhq/client";
 import dotenv from "dotenv";
+import { Heading, ParagraphWithLink } from "./object-helpers.js";
 
 dotenv.config();
 
@@ -18,16 +19,7 @@ export default async function addRecordToNotion(url, text) {
 async function appendBlockToPage(pageId, title) {
   const response = await notion.blocks.children.append({
     block_id: pageId,
-    children: [
-      {
-        object: "block",
-        type: "heading_3",
-        heading_3: {
-          rich_text: [ { type: "text", text: { content: title, } } ],
-          is_toggleable: true,
-        },
-      },
-    ],
+    children: [ new Heading(title) ],
   });
 
   return response.results[0].id;
@@ -56,14 +48,6 @@ function findTodaysBlock(blocks) {
 function addChildToBlock(blockId, text, url) {
     return notion.blocks.children.append({
     block_id: blockId,
-    children: [
-      {
-        object: "block",
-        type: "paragraph",
-        paragraph: {
-          rich_text: [ { type: "text", text: { content: text, link: { url } } } ],
-        },
-      },
-    ],
+    children: [ new ParagraphWithLink(text, url) ],
   });
 }
