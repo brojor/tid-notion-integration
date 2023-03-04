@@ -1,0 +1,21 @@
+{
+  "name": "tid-notion-integration",
+  "version": "1.0.0",
+  "description": "A command line tool for saving useful links I discovered to Notion",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "notion",
+    "integration",
+    "today-i-discovered"
+  ],
+  "author": "Bronislav Jordán",
+  "license": "ISC",
+  "dependencies": {
+    "@notionhq/client": "^2.2.3",
+    "dotenv": "^16.0.3"
+  }
+}
